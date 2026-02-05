@@ -20,13 +20,16 @@ export default function CustomCursor() {
     };
 
     const handleMouseEnter = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (
-        target.tagName === "BUTTON" ||
-        target.tagName === "A" ||
-        target.closest("button") ||
-        target.closest("a")
-      ) {
+      const target = e.target as Node;
+
+      // Check if target is an Element and has the methods we need
+      if (!(target instanceof Element)) return;
+
+      const isButton = target.tagName === "BUTTON" || target.closest("button");
+      const isLink = target.tagName === "A" || target.closest("a");
+      const isClickable = target.hasAttribute("role") && target.getAttribute("role") === "button";
+
+      if (isButton || isLink || isClickable) {
         setIsHovering(true);
         gsap.to(cursorRef.current, {
           scale: 1.5,
