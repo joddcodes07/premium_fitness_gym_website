@@ -1,30 +1,45 @@
-import { useEffect, useRef, useState } from "react";
-import HeroSection from "@/components/HeroSection";
-import ProgramsSection from "@/components/ProgramsSection";
-import TeamSection from "@/components/TeamSection";
-import WeeklyBlueprint from "@/components/WeeklyBlueprint";
-import AccessSection from "@/components/AccessSection";
+import { useEffect } from "react";
+import Lenis from "lenis";
+import CustomCursor from "@/components/CustomCursor";
+import HeroSection from "@/components/premium/HeroSection";
+import ProgramsSection from "@/components/premium/ProgramsSection";
+import TrainerCarousel from "@/components/premium/TrainerCarousel";
+import MembershipSection from "@/components/premium/MembershipSection";
+import Footer from "@/components/premium/Footer";
 
 export default function Index() {
-  const [scrollY, setScrollY] = useState(0);
-  const pageRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
+    // Initialize Lenis for smooth scrolling
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: "vertical",
+      gestureDirection: "vertical",
+      smooth: true,
+      smoothTouch: false,
+      touchMultiplier: 2,
+    });
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
   }, []);
 
   return (
-    <div ref={pageRef} className="page-container overflow-x-hidden">
+    <main className="relative bg-black">
+      <CustomCursor />
       <HeroSection />
-      <ProgramsSection scrollY={scrollY} />
-      <TeamSection scrollY={scrollY} />
-      <WeeklyBlueprint scrollY={scrollY} />
-      <AccessSection scrollY={scrollY} />
-    </div>
+      <ProgramsSection />
+      <TrainerCarousel />
+      <MembershipSection />
+      <Footer />
+    </main>
   );
 }
