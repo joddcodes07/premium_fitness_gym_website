@@ -133,7 +133,7 @@ body::before {
   bottom: 0;
   pointer-events: none;
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noiseFilter)' opacity='0.04' /%3E%3C/svg%3E");
-  z-index: 9999;
+  z-index: 9998;
 }
 
 @layer base {
@@ -147,11 +147,34 @@ body::before {
     overflow-x: auto;
     white-space: pre;
   }
+
+  button {
+    cursor: none;
+  }
+
+  a {
+    cursor: none;
+  }
 }
 
 @layer components {
   .section {
     padding: 20vh 0;
+  }
+
+  .py-20vh {
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+  }
+
+  .py-32 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .font-playfair {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
   }
 
   .glow-effect {
@@ -164,5 +187,9 @@ body::before {
 
   .glow-platinum {
     box-shadow: 0 0 80px rgba(200, 220, 255, 0.1);
+  }
+
+  .prose-light {
+    color: #eaeaea;
   }
 }
