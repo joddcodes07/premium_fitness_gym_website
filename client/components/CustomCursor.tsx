@@ -10,7 +10,6 @@ export default function CustomCursor() {
     const handleMouseMove = (e: MouseEvent) => {
       mousePos.current = { x: e.clientX, y: e.clientY };
 
-      // Animate cursor with slight lag
       gsap.to(cursorRef.current, {
         x: e.clientX,
         y: e.clientY,
@@ -19,18 +18,27 @@ export default function CustomCursor() {
       });
     };
 
+    const isInteractive = (el: Element): boolean => {
+      // Check if it's a button or link
+      if (el.tagName === "BUTTON" || el.tagName === "A") return true;
+
+      // Check if it has role="button"
+      if (el.getAttribute("role") === "button") return true;
+
+      // Check if parent is button or link
+      const parent = el.parentElement;
+      if (parent && (parent.tagName === "BUTTON" || parent.tagName === "A")) return true;
+
+      return false;
+    };
+
     const handleMouseEnter = (e: MouseEvent) => {
-      const target = e.target as Node;
+      const target = e.target;
 
-      // Check if target is an Element and has the methods we need
-      if (!(target instanceof Element)) return;
+      // Ensure we're working with an Element
+      if (!target || !(target instanceof Element)) return;
 
-      const isButton = target.tagName === "BUTTON" || target.closest("button");
-      const isLink = target.tagName === "A" || target.closest("a");
-      const isClickable = target.hasAttribute("role") && target.getAttribute("role") === "button";
-
-      if (isButton || isLink || isClickable) {
-        setIsHovering(true);
+      if (isInteractive(target)) {
         gsap.to(cursorRef.current, {
           scale: 1.5,
           duration: 0.3,
@@ -40,7 +48,6 @@ export default function CustomCursor() {
     };
 
     const handleMouseLeave = () => {
-      setIsHovering(false);
       gsap.to(cursorRef.current, {
         scale: 1,
         duration: 0.3,
@@ -49,26 +56,13 @@ export default function CustomCursor() {
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseenter", handleMouseEnter, true);
-    document.addEventListener("mouseleave", handleMouseLeave, true);
-
-    // Add hover listeners to all interactive elements
-    const interactiveElements = document.querySelectorAll(
-      "button, a, [role='button']"
-    );
-    interactiveElements.forEach((el) => {
-      el.addEventListener("mouseenter", handleMouseEnter);
-      el.addEventListener("mouseleave", handleMouseLeave);
-    });
+    window.addEventListener("mouseenter", handleMouseEnter, true);
+    window.addEventListener("mouseleave", handleMouseLeave, true);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseenter", handleMouseEnter, true);
-      document.removeEventListener("mouseleave", handleMouseLeave, true);
-      interactiveElements.forEach((el) => {
-        el.removeEventListener("mouseenter", handleMouseEnter);
-        el.removeEventListener("mouseleave", handleMouseLeave);
-      });
+      window.removeEventListener("mouseenter", handleMouseEnter, true);
+      window.removeEventListener("mouseleave", handleMouseLeave, true);
     };
   }, []);
 
