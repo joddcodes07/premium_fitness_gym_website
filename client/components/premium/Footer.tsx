@@ -14,7 +14,7 @@ export default function Footer() {
       75,
       canvasRef.current.clientWidth / canvasRef.current.clientHeight,
       0.1,
-      1000
+      1000,
     );
     const renderer = new THREE.WebGLRenderer({
       canvas: canvasRef.current,
@@ -24,7 +24,7 @@ export default function Footer() {
 
     renderer.setSize(
       canvasRef.current.clientWidth,
-      canvasRef.current.clientHeight
+      canvasRef.current.clientHeight,
     );
     renderer.setClearColor(0x030303, 0.1);
     camera.position.z = 5;
@@ -40,7 +40,10 @@ export default function Footer() {
       positionArray[i + 2] = (Math.random() - 0.5) * 10;
     }
 
-    geometry.setAttribute("position", new THREE.BufferAttribute(positionArray, 3));
+    geometry.setAttribute(
+      "position",
+      new THREE.BufferAttribute(positionArray, 3),
+    );
 
     const material = new THREE.PointsMaterial({
       size: 0.1,

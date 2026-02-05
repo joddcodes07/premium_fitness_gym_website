@@ -23,7 +23,7 @@ export default function HeroSection() {
         duration: 1.2,
         ease: "power3.out",
       },
-      0
+      0,
     );
 
     // Fade in overlay text
@@ -35,7 +35,7 @@ export default function HeroSection() {
         duration: 1,
         ease: "power3.out",
       },
-      0.3
+      0.3,
     );
 
     // Scroll prompt animation
@@ -47,7 +47,7 @@ export default function HeroSection() {
         duration: 0.8,
         ease: "power2.out",
       },
-      0.6
+      0.6,
     );
 
     // Floating animation for scroll prompt

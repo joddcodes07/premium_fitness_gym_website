@@ -16,7 +16,7 @@ export default function ProgramsSection({ scrollY }: ProgramsSectionProps) {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) {
@@ -77,18 +77,23 @@ export default function ProgramsSection({ scrollY }: ProgramsSectionProps) {
         <div className="text-center mb-16 md:mb-24">
           <h2
             className={`section-header text-4xl md:text-5xl font-serif font-bold text-foreground transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
             }`}
           >
             Signature Programs
           </h2>
           <p
             className={`section-subheader max-w-2xl mx-auto transition-all duration-700 delay-200 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
             }`}
           >
-            Choose your path. Each program is crafted for specific transformation
-            goals with elite-level coaching and proven methodologies.
+            Choose your path. Each program is crafted for specific
+            transformation goals with elite-level coaching and proven
+            methodologies.
           </p>
         </div>
 

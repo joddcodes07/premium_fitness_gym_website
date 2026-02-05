@@ -105,7 +105,8 @@ export default function MembershipSection() {
             Access Your Peak
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl">
-            Three levels of membership, each engineered for elite transformation.
+            Three levels of membership, each engineered for elite
+            transformation.
           </p>
         </div>
 

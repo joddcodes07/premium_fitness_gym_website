@@ -72,10 +72,7 @@ export default function ProgramsSection() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="section relative px-4 md:px-8 py-20vh"
-    >
+    <section ref={sectionRef} className="section relative px-4 md:px-8 py-20vh">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <h2 className="text-5xl md:text-7xl font-playfair text-center mb-20 text-white">

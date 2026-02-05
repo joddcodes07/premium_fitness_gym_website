@@ -16,7 +16,7 @@ export default function WeeklyBlueprint({ scrollY }: WeeklyBlueprintProps) {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) {
@@ -31,7 +31,11 @@ export default function WeeklyBlueprint({ scrollY }: WeeklyBlueprintProps) {
       day: "Monday",
       focus: "Strength Foundation",
       sessions: [
-        { time: "6:00 AM", name: "Elite Strength Protocol", duration: "90 min" },
+        {
+          time: "6:00 AM",
+          name: "Elite Strength Protocol",
+          duration: "90 min",
+        },
         { time: "12:00 PM", name: "Recovery & Mobility", duration: "45 min" },
         { time: "6:00 PM", name: "Nutrition Optimization", duration: "30 min" },
       ],
@@ -62,7 +66,11 @@ export default function WeeklyBlueprint({ scrollY }: WeeklyBlueprintProps) {
       day: "Thursday",
       focus: "Hypertrophy Focus",
       sessions: [
-        { time: "6:00 AM", name: "Muscle Building Protocol", duration: "90 min" },
+        {
+          time: "6:00 AM",
+          name: "Muscle Building Protocol",
+          duration: "90 min",
+        },
         {
           time: "1:00 PM",
           name: "Advanced Supplement Review",
@@ -84,7 +92,11 @@ export default function WeeklyBlueprint({ scrollY }: WeeklyBlueprintProps) {
       day: "Saturday",
       focus: "Challenge & Goals",
       sessions: [
-        { time: "8:00 AM", name: "Strategic Training Block", duration: "120 min" },
+        {
+          time: "8:00 AM",
+          name: "Strategic Training Block",
+          duration: "120 min",
+        },
         { time: "2:00 PM", name: "Elite Competition", duration: "90 min" },
         { time: "6:00 PM", name: "Recovery Ritual", duration: "60 min" },
       ],
@@ -94,7 +106,11 @@ export default function WeeklyBlueprint({ scrollY }: WeeklyBlueprintProps) {
       focus: "Integration",
       sessions: [
         { time: "9:00 AM", name: "Mind-Body Integration", duration: "90 min" },
-        { time: "2:00 PM", name: "Weekly Review & Planning", duration: "60 min" },
+        {
+          time: "2:00 PM",
+          name: "Weekly Review & Planning",
+          duration: "60 min",
+        },
         { time: "6:00 PM", name: "Meal Prep Masterclass", duration: "90 min" },
       ],
     },
@@ -118,18 +134,22 @@ export default function WeeklyBlueprint({ scrollY }: WeeklyBlueprintProps) {
         <div className="text-center mb-16 md:mb-24">
           <h2
             className={`section-header transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
             }`}
           >
             Weekly Blueprint
           </h2>
           <p
             className={`section-subheader max-w-2xl mx-auto transition-all duration-700 delay-200 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
             }`}
           >
-            Your personalized weekly schedule designed for optimal transformation.
-            Interactive planning for elite performance.
+            Your personalized weekly schedule designed for optimal
+            transformation. Interactive planning for elite performance.
           </p>
         </div>
 

@@ -27,7 +27,8 @@ export default function CustomCursor() {
 
       // Check if parent is button or link
       const parent = el.parentElement;
-      if (parent && (parent.tagName === "BUTTON" || parent.tagName === "A")) return true;
+      if (parent && (parent.tagName === "BUTTON" || parent.tagName === "A"))
+        return true;
 
       return false;
     };
