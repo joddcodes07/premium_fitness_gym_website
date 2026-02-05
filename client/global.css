@@ -142,4 +142,38 @@
   .section-subheader {
     @apply text-lg md:text-xl text-muted-foreground mt-2;
   }
+
+  .hero-section {
+    @apply relative;
+  }
+
+  .hero-headline {
+    font-family: "Playfair Display", serif;
+  }
+
+  .programs-section {
+    @apply scroll-smooth;
+  }
+
+  .team-section {
+    @apply scroll-smooth;
+  }
+
+  .weekly-blueprint {
+    @apply scroll-smooth;
+  }
+
+  .access-section {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  .text-serif {
+    font-family: "Playfair Display", serif;
+  }
 }
