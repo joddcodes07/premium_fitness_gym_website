@@ -13,8 +13,10 @@ export default {
       },
     },
     fontFamily: {
+      playfair: ['"Playfair Display"', "serif"],
       serif: ['"Playfair Display"', "serif"],
-      sans: ['"Inter"', "sans-serif"],
+      sans: ['"Manrope"', "sans-serif"],
+      manrope: ['"Manrope"', "sans-serif"],
     },
     extend: {
       colors: {
